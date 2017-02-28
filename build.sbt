@@ -5,7 +5,7 @@ version in ThisBuild := "1.0-SNAPSHOT"
 scalaVersion in ThisBuild := "2.11.8"
 
 lagomCassandraEnabled in ThisBuild := false
-lagomUnmanagedServices in ThisBuild := Map("cas_native" -> "http://via-at.com:9042")
+lagomUnmanagedServices in ThisBuild := Map("cas_native" -> "http://gfunction.com:9042")
 
 
 val macwire = "com.softwaremill.macwire" %% "macros" % "2.2.5" % "provided"
