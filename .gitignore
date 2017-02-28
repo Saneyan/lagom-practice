@@ -1,0 +1,17 @@
+target
+ideatarget
+.target
+.idea
+bin
+.cache
+.cache-main
+.cache-tests
+.classpath
+.project
+.tmpBin
+.factorypath
+.settings
+logs
+
+# conf file
+lagom-practice-impl/src/main/resources/reference.conf
