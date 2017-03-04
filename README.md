@@ -16,23 +16,6 @@ If you want to introduce API gateway pattern, the web gateway depends on PlaySca
 
 First of all, you need to create a database for the application and prepare for JDBC settings.
 
-Execute SQL above SQL for read_side_offsets, journal and snapshot DDL if you get invalid callable syntax errors on Lagom with JDBC (MySQL):
-
-```sql
-create table `journal` (`ordering` BIGINT NOT NULL AUTO_INCREMENT UNIQUE,`deleted` BOOLEAN DEFAULT false NOT NULL,`persistence_id` VARCHAR(255) NOT NULL,`sequence_number` BIGINT NOT NULL,`message` BLOB NOT NULL,`tags` VARCHAR(255));
-create table `snapshot` (`persistence_id` VARCHAR(255) NOT NULL,`sequence_number` BIGINT NOT NULL,`created` BIGINT NOT NULL,`snapshot` BLOB NOT NULL);
-create table `read_side_offsets` (`read_side_id` VARCHAR(255) NOT NULL,`tag` VARCHAR(255) NOT NULL,`sequence_offset` BIGINT,`time_uuid_offset` CHAR(36));
-```
-
-
-```
-[error] a.a.OneForOneStrategy - invalid callable syntax. must be like {? = call <procedure/function name>[(?,?, ...)]}                                                                                                                        
- but was : create table `journal` (`ordering` BIGINT NOT NULL AUTO_INCREMENT UNIQUE,`deleted` BOOLEAN DEFAULT false NOT NULL,`persistence_id` VARCHAR(255) NOT NULL,`sequence_number` BIGINT NOT NULL,`message` BLOB NOT NULL,`tags` VARCHAR(2
-55))  
-```
-
-See also for the errors: https://github.com/lagom/lagom/issues/498
-
 ## Run
 
 ```bash
